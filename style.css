@@ -1,0 +1,75 @@
+:root{color-scheme:dark;--script:'Great Vibes','Segoe Script','Monotype Corsiva',cursive;--body:'Geologica',Arial,sans-serif;--night:#050126;--pearl-gradient:linear-gradient(0deg,#afbef9 0%,#b4c3ff 30%,#d4ddff 48%,#b6c5fc 63%,#afbef9 100%);--s:1}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--night);color:#fff}body{font-family:var(--body);font-weight:300}p,h1,h2{margin:0}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}a{color:inherit}button:focus-visible,a:focus-visible{outline:3px solid #e2d7ff;outline-offset:5px}
+/* Координаты исходного макета 1280 × 1080; на мобильном — 375 × 1080. */
+.stage{position:relative;isolation:isolate;overflow:hidden;width:100%;min-height:100svh;background:radial-gradient(ellipse at 50% 15%,#22164d,#050126 75%)}
+.stage::before{content:"";position:absolute;inset:0;background:url('assets/background-desktop.png') center/cover;filter:blur(65px);opacity:.35;transform:scale(1.1);z-index:-1}
+.scene{position:absolute;top:0;left:50%;width:1280px;height:1080px;transform:translateX(-50%) scale(var(--s));transform-origin:top center;overflow:hidden;isolation:isolate}
+.background,.background img{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}.background img{object-fit:fill}
+.title,.date,.place,.dress,.accept{position:absolute;font-family:var(--script);font-weight:400;text-align:center;line-height:1.2;z-index:2}
+.title{left:330px;top:252px;width:620px;font-size:55px;white-space:nowrap;text-shadow:0 0 1px #fff}
+.description{position:absolute;left:312px;top:344px;width:656px;font-size:23px;line-height:1.27;text-align:center;z-index:2}.description p+p{margin-top:11px}
+.date{left:332px;top:508px;width:334px;font-size:35px;white-space:nowrap}
+.place{left:671px;top:508px;width:320px;font-size:35px;white-space:nowrap}.place a{text-decoration:none}.place a:hover,.place a:focus-visible{text-decoration:underline;text-underline-offset:5px}
+.dress{left:290px;top:570px;width:700px;font-size:35px;line-height:1.2}
+.accept{left:482px;top:644px;width:315px;height:48px;border:0;border-radius:20px;background:radial-gradient(ellipse at center,#f9fbff 0%,#dce4ff 22%,transparent 70%),var(--pearl-gradient);color:#09103f;font-size:35px;line-height:1;display:grid;place-items:center;padding:0 0 2px;transition:filter .2s,box-shadow .2s;z-index:5;white-space:nowrap}
+.accept:hover{filter:brightness(1.09);box-shadow:0 0 22px #c8baff77}.accept::after{content:"";position:absolute;inset:-6px 0}
+/* Персонажи — отдельные PNG. Менять только файлы в assets, не фон. */
+.character{position:absolute;width:625px;height:710px;object-fit:contain;pointer-events:none;user-select:none;z-index:3}.character-liza{left:-88px;top:530px}.character-olya{left:755px;top:525px}
+.wishlist{position:absolute;display:block;z-index:5;transition:filter .2s,transform .2s}.wishlist img{width:100%;height:100%;object-fit:contain;display:block}.wishlist:hover{filter:brightness(1.2);transform:translateY(-2px)}.wishlist-liza{left:119px;top:805px;width:163px;height:115px}.wishlist-olya{left:989px;top:808px;width:158px;height:109px}
+/* Оригинальные поп-апы из Figma: 707 × 476 и 308 × 473. */
+dialog{width:min(707px,calc(100vw - 24px),calc((100dvh - 24px) * 707 / 476));height:auto;aspect-ratio:707/476;max-width:none;max-height:none;margin:auto;padding:0;border:0;overflow:visible;background:transparent;color:white;isolation:isolate;text-align:center;container-type:inline-size}
+dialog::backdrop{background:rgba(0,0,0,.67)}dialog[open]{animation:appear .3s cubic-bezier(.2,.75,.3,1) both}dialog[open]::backdrop{animation:fade .25s ease both}
+.wish-content{position:absolute;inset:0;background:url('assets/popup-art.png') center/100% 100% no-repeat}
+.close{position:absolute;right:5%;top:6%;width:32px;height:32px;border:0;background:#100b2b80;color:#eeeaff;border-radius:50%;font:24px/1 Arial,sans-serif;z-index:2;display:grid;place-items:center;padding:0;transition:background .2s}.close:hover{background:#493b7b}
+.wish-content h2{position:absolute;top:15.75%;left:7.64%;width:84.87%;font:400 5.09cqw/1.2 var(--script);letter-spacing:.1cqw;white-space:normal}
+.wish-label{position:absolute;top:28.57%;left:8%;width:84%;font:300 2.83cqw/1.25 var(--body);color:#d6d3ff}
+.wish-card{position:absolute;top:35.714%;left:16.407%;width:67.327%;height:16.807%;display:flex;align-items:center;justify-content:center;padding:0 3.5%;color:#09103f}
+.wish-card p{width:100%;font:300 2.83cqw/1.18 var(--body);overflow-wrap:break-word}
+body.modal-open{overflow:hidden}@keyframes appear{from{opacity:0;transform:translateY(22px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes fade{from{opacity:0}to{opacity:1}}
+@media(max-width:700px){
+ .stage::before{background-image:url('assets/background-mobile.png')}.scene{width:375px;height:1080px}
+ .title{left:28px;top:248px;width:319px;font-size:36px;line-height:1.18;white-space:normal;text-align:left}.title span{display:block}.title span:first-child{padding-left:31px}.title span:last-child{text-align:right;padding-right:36px}
+ .description{left:47.5px;top:349px;width:280px;font-size:15px;line-height:1.27}.description p+p{margin-top:11px}
+ .date{left:25.5px;top:505px;width:324px;font-size:25px;line-height:1.2}
+ .place{left:22px;top:545px;width:331px;font-size:25px;line-height:1.2}
+ .dress{left:20.5px;top:583px;width:334px;font-size:25px;line-height:38px}
+ .accept{left:78px;top:683px;width:218.6px;height:33.3px;border-radius:13.88px;font-size:24.3px;padding-bottom:1px}
+ .character{width:465px;height:528px}.character-liza{left:-155px;top:685px}.character-olya{left:68px;top:685px}
+ .wishlist-liza{left:27px;top:883px;width:106px;height:74.3px}.wishlist-olya{left:239px;top:884px;width:105.36px;height:73px}
+ dialog{width:min(308px,calc(100vw - 24px),calc((100dvh - 24px) * 308 / 473));aspect-ratio:308/473}
+ .wish-content{background-image:url('assets/popup-art-mobile.png')}
+ .close{width:30px;height:30px;font-size:22px;right:7%;top:7%}
+ .wish-content h2{top:13.95%;left:10%;width:80%;font-size:9.09cqw;line-height:1.22;letter-spacing:.65cqw}
+ .wish-content h2 span{display:block;white-space:nowrap}
+ .wish-label{top:40.38%;left:3.57%;width:92.59%;font-size:4.87cqw;line-height:1.2}
+ .wish-card{top:46.09%;left:10.065%;width:78.896%;height:21.776%;padding:0 5.52%}
+ .wish-card p{font-size:4.87cqw;line-height:1.18}
+
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* Серебряный занавес: оригинальные изображения 1920 × 1080, без cover.
+   Удалены только прозрачные поля. Половины сохраняют масштаб общего холста. */
+.curtain-intro{display:none;position:fixed;inset:0;z-index:20;overflow:hidden;isolation:isolate;touch-action:none;pointer-events:auto;--curtain-left-travel:54vw;--curtain-right-travel:53vw;--curtain-duration:2100ms}
+.curtains-enabled .curtain-intro{display:block}
+.curtain-intro:not(.is-opening):not(.is-open){background:#24242c}
+.curtain-panel{position:absolute;top:0;bottom:0;overflow:hidden;background-size:100% 100%;background-repeat:no-repeat;will-change:transform;transition:transform var(--curtain-duration) cubic-bezier(.68,.02,.20,1);transform:translate3d(0,0,0)}
+.curtain-left{left:0;width:53.229167%;background-image:url('assets/curtain-left.png');background-position:right center}
+.curtain-right{right:0;width:52.135417%;background-image:url('assets/curtain-right.png');background-position:left center}
+.curtain-panel::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(108deg,transparent 25%,rgba(211,205,255,.09) 40%,rgba(255,255,255,.34) 50%,rgba(222,232,255,.12) 60%,transparent 75%);transform:translateX(-115%);mix-blend-mode:screen;animation:curtain-shimmer 2.4s .1s ease-in-out both}
+.curtain-right::after{animation-direction:reverse}
+.curtain-glow{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(ellipse 11vw 70% at center,rgba(239,228,255,.55),rgba(174,137,255,.18) 50%,transparent 100%);mix-blend-mode:screen}
+.curtain-intro.is-opening .curtain-left,.curtain-intro.is-open .curtain-left{transform:translate3d(calc(-1 * var(--curtain-left-travel)),0,0)}
+.curtain-intro.is-opening .curtain-right,.curtain-intro.is-open .curtain-right{transform:translate3d(var(--curtain-right-travel),0,0)}
+.curtain-intro.is-opening .curtain-glow{animation:curtain-glow 1.8s ease-out both}
+.curtain-sparks{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.curtain-sparks i{position:absolute;left:50%;top:var(--y);width:var(--size);height:var(--size);opacity:0;background:#fff5ff;clip-path:polygon(50% 0,59% 41%,100% 50%,59% 59%,50% 100%,41% 59%,0 50%,41% 41%);filter:drop-shadow(0 0 5px #e1caff)}
+.curtain-intro.is-opening .curtain-sparks i{animation:curtain-star 1.45s var(--delay) ease-out both}
+.curtain-intro.is-open{pointer-events:none;touch-action:auto}
+.curtain-intro.is-open .curtain-panel{transition:none;will-change:auto}
+.curtain-intro.is-open .curtain-panel::after,.curtain-intro.is-open .curtain-glow,.curtain-intro.is-open .curtain-sparks{display:none}
+@keyframes curtain-shimmer{0%{transform:translateX(-115%);opacity:0}18%{opacity:.75}65%{opacity:.7}100%{transform:translateX(115%);opacity:0}}
+@keyframes curtain-glow{0%{opacity:0;transform:scaleX(.3)}22%{opacity:.7;transform:scaleX(.65)}55%{opacity:.38;transform:scaleX(1.5)}100%{opacity:0;transform:scaleX(2.5)}}
+@keyframes curtain-star{0%{opacity:0;transform:translate(-50%,-50%) scale(.2)}25%{opacity:.85}70%{opacity:.65}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.35) rotate(35deg)}}
+@media(max-width:700px){.curtain-panel{background-size:145% 100%}.curtain-intro.is-open{display:none}.curtain-glow{background:radial-gradient(ellipse 22vw 65% at center,rgba(239,228,255,.48),rgba(174,137,255,.16) 50%,transparent 100%)}}
+@media(prefers-reduced-motion:reduce){.curtain-panel{transition:none!important}.curtain-panel::after,.curtain-glow,.curtain-sparks{display:none!important}}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050126">
+<meta name="robots" content="noindex, nofollow">
+<title>Dreamland — приглашение</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/curtain-left.png" as="image">
+<link rel="preload" href="assets/curtain-right.png" as="image">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('curtains-enabled');</script>
+<script src="config.js" defer></script>
+<script src="script.js" defer></script>
+</head>
+<body>
+<main class="stage" id="stage" aria-label="Приглашение в Dreamland">
+ <div class="scene" id="scene">
+  <picture class="background" aria-hidden="true"><source media="(max-width:700px)" srcset="assets/background-mobile.png"><img src="assets/background-desktop.png" alt="" fetchpriority="high"></picture>
+  <h1 class="title"><span>Приглашение</span> <span>в Dreamland!</span></h1>
+  <div class="description"><p>Оля и Лиза зовут тебя отвлечься от привычного, немного помечтать и отпраздновать два дня рождения.</p><p>Твоя задача — освободить этот день, захватить подарок и мечтательно-радостное настроение!</p></div>
+  <p class="date">Дата: 28 ноября, 15:00</p>
+  <p class="place">Место: <a id="place-link" target="_blank" rel="noopener noreferrer">Парк Победы</a></p>
+  <p class="dress">Дресс-код: добавь яркие и необычные детали в образ</p>
+  <button type="button" id="accept" class="accept" aria-haspopup="dialog">принять приглашение</button>
+  <img class="character character-liza" src="assets/character-liza.png" alt="" draggable="false">
+  <img class="character character-olya" src="assets/character-olya.png" alt="" draggable="false">
+  <a class="wishlist wishlist-liza" id="wishlist-liza" target="_blank" rel="noopener noreferrer"><img src="assets/wishlist-liza.png" alt="Вишлист Лизы"></a>
+  <a class="wishlist wishlist-olya" id="wishlist-olya" target="_blank" rel="noopener noreferrer"><img src="assets/wishlist-olya.png" alt="Вишлист Оли"></a>
+ </div>
+</main>
+<div class="curtain-intro" id="curtain-intro" aria-hidden="true">
+ <div class="curtain-panel curtain-left"></div>
+ <div class="curtain-panel curtain-right"></div>
+ <div class="curtain-glow"></div>
+ <div class="curtain-sparks">
+  <i style="--y:23%;--size:17px;--dx:-19vw;--dy:-8vh;--delay:160ms"></i>
+  <i style="--y:38%;--size:11px;--dx:22vw;--dy:-13vh;--delay:250ms"></i>
+  <i style="--y:52%;--size:23px;--dx:-29vw;--dy:4vh;--delay:230ms"></i>
+  <i style="--y:65%;--size:13px;--dx:27vw;--dy:9vh;--delay:300ms"></i>
+  <i style="--y:78%;--size:9px;--dx:-14vw;--dy:10vh;--delay:330ms"></i>
+  <i style="--y:17%;--size:8px;--dx:12vw;--dy:3vh;--delay:340ms"></i>
+ </div>
+</div>
+<dialog id="wish-dialog" aria-labelledby="wish-heading" aria-describedby="wish-text">
+ <div class="wish-content">
+  <button type="button" class="close" id="close-wish" aria-label="Закрыть" autofocus>×</button>
+  <h2 id="wish-heading"><span class="wish-greeting">Ура, ждем тебя</span> <span class="wish-date">28 ноября</span> <span class="wish-time">в 15:00!</span></h2>
+  <p class="wish-label">Персональное пожелание:</p>
+  <div class="wish-card"><p id="wish-text" aria-live="polite"></p></div>
+ </div>
+</dialog>
+</body>
+</html>
